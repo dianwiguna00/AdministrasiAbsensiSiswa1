@@ -256,7 +256,6 @@ async function loadSiswa(){
 
     }catch(err){
 
-        alert("Gagal mengambil data siswa");
 
     }
 }
@@ -350,13 +349,11 @@ async function simpan(){
 
         await res.text();
 
-        alert("Absensi berhasil disimpan");
 
     }catch(err){
 
         console.error(err);
 
-        alert("Gagal menyimpan absensi");
     }
 }
 
@@ -383,9 +380,6 @@ async function downloadCSV(){
 
     if(!kelas){
 
-        alert(
-          "Pilih kelas terlebih dahulu"
-        );
 
         return;
     }
@@ -413,16 +407,10 @@ async function downloadCSV(){
 
         });
 
-Android.downloadCSV(
-    csv,
-    "Absen_" + mapel + "_" + kelas + ".csv"
-);
+Android.downloadCSV(csv);
 
     }catch(err){
 
-        alert(
-          "Gagal mengunduh rekap"
-        );
 
     }
 }
