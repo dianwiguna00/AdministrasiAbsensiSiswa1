@@ -339,6 +339,9 @@ const data = {
     tanggal:
     document.getElementById("tanggal").value,
 
+    absensi:
+    dataSiswa,
+    
     deviceId:
     (
         window.Android &&
@@ -357,10 +360,7 @@ const data = {
     ?
     Android.getDeviceName()
     :
-    "",
-
-    absensi:
-    dataSiswa
+    ""
 };
 
         const res = await fetch(API,{
