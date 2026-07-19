@@ -232,7 +232,7 @@ Simpan
 
 <script>
 
-const API = "https://script.google.com/macros/s/AKfycbw7sgfJMFJ0Oym2DMsjWy2tHekCU0GsN9nPxen1gwxvrQlieYZzVvMZqMkw30KluM0S/exec";
+const API = "https://script.google.com/macros/s/AKfycbw8AtkHfE58l9vFe89XVKLP9_rsPd8zzfaMljb2yPZE4U-B5V3LVgeQ1NJAbWnA9flP/exec";
 
 let dataSiswa = [];
 
@@ -328,20 +328,40 @@ async function simpan(){
 
     try{
 
-        const data = {
+const data = {
 
-            mapel:
-            document.getElementById("mapel").value,
+    mapel:
+    document.getElementById("mapel").value,
 
-            kelas:
-            document.getElementById("kelas").value,
+    kelas:
+    document.getElementById("kelas").value,
 
-            tanggal:
-            document.getElementById("tanggal").value,
+    tanggal:
+    document.getElementById("tanggal").value,
 
-            absensi:
-            dataSiswa
-        };
+    deviceId:
+    (
+        window.Android &&
+        typeof Android.getDeviceId === "function"
+    )
+    ?
+    Android.getDeviceId()
+    :
+    "",
+
+    deviceName:
+    (
+        window.Android &&
+        typeof Android.getDeviceName === "function"
+    )
+    ?
+    Android.getDeviceName()
+    :
+    "",
+
+    absensi:
+    dataSiswa
+};
 
         const res = await fetch(API,{
             method:"POST",
